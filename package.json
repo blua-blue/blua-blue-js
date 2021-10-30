@@ -1,0 +1,35 @@
+{
+  "name": "blua-blue-js",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "./node_modules/.bin/tsc --watch",
+    "test": "jest",
+    "coverage": "jest --coverage",
+    "build": "npm run build:es2015 && npm run build:esm && npm run build:cjs && npm run build:umd && npm run build:umd:min",
+    "build:es2015": "tsc --module es2015 --target es2015 --outDir dist/es2015",
+    "build:esm": "tsc --module es2015 --target es5 --outDir dist/esm",
+    "build:cjs": "tsc --module commonjs --target es5 --outDir dist/cjs",
+    "build:umd": "rollup dist/esm/index.js -c rollup.config.js -p @rollup/plugin-node-resolve --format umd --name BluaBlueClient --sourcemap -o dist/umd/BluaBlueClient.js",
+    "build:umd:min": "cd dist/umd && uglifyjs --compress --mangle --source-map --comments -o BluaBlueClient.min.js -- BluaBlueClient.js "
+  },
+  "dependencies": {
+    "axios": "^0.24.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/jest": "^27.0.2",
+    "@types/node": "^16.11.6",
+    "express": "^4.17.1",
+    "jest": "^27.3.1",
+    "node-fetch": "^3.0.0",
+    "rollup": "^2.58.3",
+    "ts-jest": "^27.0.7",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.4.4",
+    "uglify": "^0.1.5",
+    "uglify-js": "^3.14.2",
+    "@rollup/plugin-node-resolve": "^7.1.3"
+  }
+}

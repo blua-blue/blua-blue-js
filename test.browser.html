@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Allow</title>
+
+</head>
+<body>
+<p>Test browser login</p>
+<section id="my-articles">
+    <h2>My articles</h2>
+</section>
+<script src="https://unpkg.com/axios@0.24.0/dist/axios.min.js"></script>
+<script src="dist/umd/BluaBlueClient.js"></script>
+<script>
+    const endpoint = 'http://localhost:8080';
+    const client = new BluaBlueClient('D1BA9ADD390E11EC9509D83BBF2ADDD8',null,endpoint);
+    const container = document.getElementById('my-articles')
+    const params = new URLSearchParams(window.location.search);
+    if(!params.get('token') && !client.getToken()){
+        window.location.href = client.login(window.location.href)
+    } else if(params.get('token')){
+        client.setToken(params.get('token'))
+    }
+    client.getOwnArticles().then(articles => {
+        console.log(articles)
+        articles.forEach(article => {
+            container.innerHTML += `<h3><a href="${endpoint}/article/${article.slug}">${article.name}</a> </h3>`
+            container.innerHTML += `<p>${article.teaser}</p>`;
+        })
+    })
+</script>
+
+</body>
+</html>

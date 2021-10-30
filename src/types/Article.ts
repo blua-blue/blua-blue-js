@@ -1,0 +1,65 @@
+interface Article{
+	readonly id?: string,
+	name?: string,
+	slug: string,
+	teaser?: string,
+	image_id?: string,
+	author_user_id?: string,
+	category_id?: string,
+	is_public: number,
+	keywords?: string,
+	readonly publish_date_st: number,
+	publish_date?: string,
+	readonly insert_date_st: number,
+	insert_date: string,
+	readonly update_date_st: number,
+	update_date?: string,
+	readonly delete_date_st: number,
+	delete_date?: string,
+	article_comment: Array<Article_comment>,
+	article_content: Array<Article_content>,
+	article_rating: Array<Article_rating>,
+	article_store: Array<Article_store>,
+}
+interface Article_comment{
+	readonly id?: string,
+	article_id?: string,
+	user_id?: string,
+	parent_id?: string,
+	comment?: string,
+	readonly insert_date_st: number,
+	insert_date: string,
+	readonly delete_date_st: number,
+	delete_date?: string,
+}
+interface Article_content{
+	readonly id?: string,
+	article_id?: string,
+	sort: number,
+	content_type?: string,
+	content?: number,
+	readonly insert_date_st: number,
+	insert_date: string,
+	readonly delete_date_st: number,
+	delete_date?: string,
+}
+interface Article_rating{
+	readonly id?: string,
+	article_id?: string,
+	rating?: number,
+	rater_user_id?: string,
+	readonly insert_date_st: number,
+	insert_date: string,
+}
+interface Article_store{
+	readonly id?: string,
+	article_id?: string,
+	store_key: string,
+	value: string,
+	readonly insert_date_st: number,
+	insert_date: string,
+	readonly delete_date_st: number,
+	delete_date?: string,
+}
+
+export {Article, Article_comment, Article_content, Article_rating, Article_store}
