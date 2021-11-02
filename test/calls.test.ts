@@ -7,7 +7,7 @@ const mockedAxios = axios as jest.Mocked<typeof axios>;*/
 
 
 
-describe("test add function", () => {
+describe("test client", () => {
     let server, bluaBlue;
     beforeAll(done => {
         bluaBlue = new BluaBlueNodeSdk('mockPublic','mockAPI','http://localhost:3001/api');

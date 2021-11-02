@@ -38,8 +38,8 @@ class BluaBlueNodeSdk{
     setToken(token):void{
         this.token = token;
     }
-    login(redirect: string, endpoint: string=null){
-        return this.endpoint + '/auth?redirect='+ redirect + (endpoint? '&endpoint='+endpoint:'');
+    login(redirect: string, scope:string='all', endpoint: string=null){
+        return this.endpoint + `/auth?scope=${scope}&public_key=${this.PublicId}&redirect=`+ redirect + (endpoint? '&endpoint='+endpoint:'');
     }
     async getArticle(slug: string): Promise<Article>{
         try{
