@@ -39,3 +39,13 @@ const client = new Blua('5594613839C611EC9509D83BBF2ADDD8','3a91fe7a79f12a28de7f
     console.log(await client.getOwnArticles())
 })()
 ```
+
+## CDN
+
+| Format | CDN | 
+| --- | --- |
+| esm | https://cdn.jsdelivr.net/npm/blua-blue-js@latest/dist/esm/index.js |
+| es2015 | https://cdn.jsdelivr.net/npm/blua-blue-js@latest/dist/es2015/index.js |
+| cjs | https://cdn.jsdelivr.net/npm/blua-blue-js@latest/dist/cjs/index.js |
+| umd | https://cdn.jsdelivr.net/npm/blua-blue-js@latest/dist/umd/BluaBlueClient.min.js |
+

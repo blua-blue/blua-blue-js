@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
-router.post('/auth/:apikey/:publicKey', (req, res) =>{
-    if(req.params.apikey === 'mockAPI' && req.params.publicKey === 'mockPublic'){
+router.post('/auth/:publicKey', (req, res) =>{
+    if(req.body.apikey === 'mockAPI' && req.params.publicKey === 'mockPublic'){
         return res.json({token:'testtoken'}).end()
     }
     return res.status(401).end();

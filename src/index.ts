@@ -27,7 +27,7 @@ class BluaBlueNodeSdk{
         })
     }
     async authenticate(): Promise<void>{
-        return this.api.post('/auth/'+this.APIkey+'/'+this.PublicId).then(res => {
+        return this.api.post('/auth/'+this.PublicId, {apiKey:this.APIkey}).then(res => {
             this.token = res.data.token;
 
         }).catch(BluaBlueNodeSdk.evaluateError)
